@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/about'
   get 'sessions/new'
-  root 'static_pages#home'
+  root 'posts#index'
 end

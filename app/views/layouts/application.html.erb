@@ -19,10 +19,14 @@
         <%= link_to "WEMPOWER", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
-          </ul>
+            <% if user_signed_in? %>
+              <%= link_to 'Edit Settings', edit_user_registration_path %>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Sign up', new_user_registration_path %>
+              <%= link_to 'Log in', new_user_session_path %>
+            <% end %>
+           </ul>
         </nav>
       </div>
     </header>
@@ -30,3 +34,9 @@
     <%= yield %>
   </body>
 </html>
+            <%# put this in the end of the home page %>
+
+           <%# <li><%= link_to "Home",   '#' </li> %>
+           <%#  <li><%= link_to "Help",   '#' </li>  %>
+          <%# <li><%= link_to "Log in", '#'</li> %> 
+          <%#</ul> %>
