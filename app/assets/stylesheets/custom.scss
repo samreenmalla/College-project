@@ -1,0 +1,27 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$primary-font: 'Pacifico', cursive;
+$secondary-font: 'Dosis', sans-serif;
+
+body{
+    padding: 60px;
+}
+
+textarea{
+    resize: vertical;
+}
+ 
+#logo{
+    font-weight: medium;
+    margin-right: 12px;
+    font-size: 25px;
+    color: blue($color: #00ffff);
+    font-family: $primary-font;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+
+h1,h2,h3{
+    font-family: $secondary-font;
+}
