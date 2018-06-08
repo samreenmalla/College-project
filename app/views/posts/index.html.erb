@@ -1,1 +1,8 @@
-<h1> hello Wempower </h1>
+<% @posts.each do |post| %>
+	<%= image_url post.user.photo.url.to_s %>
+	<%= image_tag post.photo.url.to_s %>
+  <%= post.user.name %>
+  <%#<%= image_url post.photo %>
+  <%= post.caption %>
+<% end %>
+
