@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'sessions/new'
   root 'posts#index'
   resources :posts
+  resources :users, only: :show
+
 end

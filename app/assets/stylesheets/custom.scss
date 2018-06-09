@@ -5,23 +5,110 @@ $primary-font: 'Pacifico', cursive;
 $secondary-font: 'Dosis', sans-serif;
 
 body{
-    padding: 60px;
+  padding: 60px;
+  background-color: #FAFAFA;
 }
 
 textarea{
-    resize: vertical;
+  resize: vertical;
 }
  
 #logo{
-    font-weight: medium;
-    margin-right: 12px;
-    font-size: 25px;
-    color: blue($color: #00ffff);
-    font-family: $primary-font;
-    padding-top: 10px;
-    margin-right: 10px;
+  font-weight: medium;
+  margin-right: 12px;
+  font-size: 20px;
+	color: blue($color: #00ffff);
+  font-family: $primary-font;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0 10px;
 }
 
 h1,h2,h3{
-    font-family: $secondary-font;
+  font-family: $secondary-font;
+}
+
+nav {
+	height: 20px;
+}
+
+.nav_links {
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 20px;
+}
+.photo {
+  width: 50%;
+  max-height: 50%;
+}
+
+.post_area {
+  background-color: white;
+  border: 1px solid #edeeee;
+  border-radius: 3px;
+  margin: 60px 0px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.post_header{
+  height: 64px;
+  padding: 14px 24px;
+  font-weight: 600;
+}
+
+.post_body{
+  padding: 10px 24px 0px 24px;
+}
+
+.timestamp {
+  color: #a5a7aa;
+  font-weight: 500;
+}
+
+.profile_header{
+  height: 100%;
+  padding: 60px 20px 0px;
+  margin-bottom: 45px;
+  align-content: center;
+}
+
+.username {
+  color: #4b4f54;
+  font-weight: 300;
+  font-size: 34px;
+  font-family: $secondary-font;
+  line-height: 40px;
+  text-align: center;
+}
+
+.profile_show {
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+
+.prof_post_box {
+  margin-bottom: 50px;
+}
+
+.user_edit_button {
+  margin-top: 25px;
+  border-color: #818488;     
+  color: #818488;
+  align-content: flex-end;
+}
+
+.profile_pic {
+  border-radius: 60%;
+  height: 150px;
+  width: 150px;
+  align-content: center;  
+}
+
+.prof_pic_small {
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
 }

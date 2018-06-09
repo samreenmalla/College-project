@@ -16,16 +16,17 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "WEMPOWER", '#', id: "logo" %>
+        <%= link_to 'WEMPOWER', static_pages_home_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <%= link_to 'New Post', new_post_path %>
-              <%= link_to 'Edit Settings', edit_user_registration_path %>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+              <span class="nav_links pull-right"><%= link_to 'Home', posts_path %></span>
+              <span class="nav_links pull-right"><%= link_to 'New Post', new_post_path %></span>
+              <%#<span class="nav_links pull-right"><%= link_to 'Edit Settings', edit_user_registration_path %>
+              <span class="nav_links pull-right"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></span>
             <% else %>
-              <%= link_to 'Sign up', new_user_registration_path %>
-              <%= link_to 'Log in', new_user_session_path %>
+              <span class="nav_links pull-right"><%= link_to 'Sign up', new_user_registration_path %></span>
+              <span class="nav_links pull-right"><%= link_to 'Log in', new_user_session_path %></span>
             <% end %>
            </ul>
         </nav>
@@ -36,8 +37,7 @@
   </body>
 </html>
             <%# put this in the end of the home page %>
-
-           <%# <li><%= link_to "Home",   '#' </li> %>
            <%#  <li><%= link_to "Help",   '#' </li>  %>
-          <%# <li><%= link_to "Log in", '#'</li> %> 
+          <%# <li><%= link_to "About us", '#'</li> %> 
+          
           <%#</ul> %>
