@@ -4,10 +4,26 @@
   <title>Home | Wempower</title>
 </head>
 <body>
-<div class="center jumbotron">
-  <h1>Home</h1>
-	<p> lets add some beautiful UI/UX using material</p>
-   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+<div class="row">
+  <div class="center jumbotron">
+    <h1>Home</h1>
+	  <p> lets add some beautiful UI/UX using material</p>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<div class="row">
+  <div class ="center jumbotron">
+    <%= image_tag ("womensday.jpg") %>
+  </div>
+</div>
+<div class="row">
+  <div class="center jumbotron">
+    <%= image_tag ("girlsinengg.jpg") %>
+  </div>
+</div>
+<div class="row">
+  <span class = "nav_links pull-left"><%= link_to "About us", static_pages_about_path %></span>
+  <span class = "nav_links pull-left"><%= link_to "Contact us", static_pages_help_path%></span>
 </div>
 </body>
 </html>
