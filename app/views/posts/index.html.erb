@@ -12,10 +12,13 @@
     <div class = "post_body" >
       <%= link_to post.user.name, user_path(post.user_id) %> <%= post.caption %>
       <%= link_to 'View Post', post_path(post.id)%>
-      <% if post.user == current_user %>
-        <%= link_to 'Edit Post', edit_post_path(post.id) %>
-        <%= link_to 'Delete Post', post_path(post.id), method: :delete %>
-      <% end %>
     </div>
+
+    <div class = "row" >
+      <div class = "center jumbotron">
+        <h1> Do what you can, with what you have,where you are </h1>
+      </div>
+    </div>
+  
   </div>
 <% end %>

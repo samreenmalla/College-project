@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'sessions/new'
   root 'posts#index'
+  get 'ideas/index'
   resources :posts
+  resources :ideas
   resources :users, only: :show
 
 end

@@ -1,31 +1,34 @@
 <!DOCTYPE html>
+<style>
+#slider{
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+
+}
+#slider figure {
+  position: relative;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 10s slider infinite;
+}
+</style>
 <html>
 <head>
-  <title>Home | Wempower</title>
+<title>Home | Wempower</title>
 </head>
 <body>
-<div class="row">
-  <div class="center jumbotron">
-    <h1>Home</h1>
-	  <p> lets add some beautiful UI/UX using material</p>
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  </div>
+<div id ="slider">
+<figure>
+<%= images_tag ["womensday.jpg", "womensday.jpg"], size: "450x450" %>
+</figure>
 </div>
-<div class="row">
-  <div class ="center jumbotron">
-    <%= image_tag ("womensday.jpg") %>
-  </div>
 </div>
-<div class="row">
-  <div class="center jumbotron">
-    <%= image_tag ("girlsinengg.jpg") %>
-  </div>
-</div>
-<div class="row">
-  <span class = "nav_links pull-left"><%= link_to "About us", static_pages_about_path %></span>
-  <span class = "nav_links pull-left"><%= link_to "Contact us", static_pages_help_path%></span>
+<div class="row4">
+<span class = "nav_links pull-left"><%= link_to "About us", static_pages_about_path %></span>
+<span class = "nav_links pull-left"><%= link_to "Contact us", static_pages_help_path%></span>
 </div>
 </body>
 </html>
-
-

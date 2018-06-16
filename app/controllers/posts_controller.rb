@@ -4,7 +4,13 @@ class PostsController < ApplicationController
 	before_action :is_owner?, only: [:edit, :update, :destroy]
 
 	def index
+		if user_signed_in?
 		@posts = Post.all.order('created_at DESC')
+		@ideas = Idea.all.order('created_at DESC')
+		else 
+			render static_pages_home_path
+		end
+
 	end
 	
 	def new
