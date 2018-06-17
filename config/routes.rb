@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'ideas/index'
   resources :posts
   resources :ideas
+  resources :donations
   resources :users, only: :show
 
 end

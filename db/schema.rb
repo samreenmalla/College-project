@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_151205) do
+ActiveRecord::Schema.define(version: 2018_06_17_044013) do
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "Roll_No"
+    t.string "Name"
+    t.string "Faculty"
+    t.integer "Year"
+    t.integer "Contact_Number"
+    t.integer "Donation_quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ideas", force: :cascade do |t|
     t.text "description"
