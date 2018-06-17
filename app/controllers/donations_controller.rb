@@ -5,7 +5,7 @@ class DonationsController < ApplicationController
   end
   
   def create
-  	@donation = Donation.create(donation_params[:id])
+		@donation = Donation.create(donation_params[:id])
 	end
 
 	def show

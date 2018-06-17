@@ -3,7 +3,6 @@
     <div class="panel-body">
       <blockquote>
         <p><%= idea.description %></p>
-        <small>by <%= idea.author %></small>
       </blockquote>
       <br>
       <%= link_to 'Delete', idea_path(idea), method: :delete, class: 'btn btn-sm btn-primaty', data: {confirm: "Are you sure?"} %>

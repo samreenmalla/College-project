@@ -2,7 +2,6 @@ class IdeasController < ApplicationController
 
 	def index
 		@ideas = Idea.all;
-		@posts = Post.all;
 	end
 
 	def create
@@ -39,7 +38,7 @@ class IdeasController < ApplicationController
 	private
 	
 		def idea_params
-			params.require(:idea).permit(:description, :author)
+			params.require(:idea).permit(:description)
 		end
 end
 
