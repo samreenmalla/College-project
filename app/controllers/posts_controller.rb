@@ -6,14 +6,13 @@ class PostsController < ApplicationController
 	def index
 		if user_signed_in?
 		@posts = Post.all.order('created_at DESC')
-		@ideas = Idea.all.order('created_at DESC')
 		else 
 			render static_pages_home_path
 		end
 
 	end
 	
-	def new
+	def new 
 		@post = Post.new
 	end
 
@@ -61,5 +60,4 @@ class PostsController < ApplicationController
 			redirect_to root_path
 		end
 	end
-
 end

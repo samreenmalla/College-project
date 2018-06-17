@@ -1,45 +1,63 @@
 class IdeasController < ApplicationController
 
-	def index
-		@ideas = Idea.all;
-	end
+  before_action :authenticate_user!, only: [:new, :create]
+	before_action :is_owner?, only: [:edit, :update, :destroy]
 
-	def create
-		@idea = Idea.create(idea_params)
-		redirect_to root_path
+	def index
+		if user_signed_in?
+			@ideas = Idea.all.order('created_at DESC')
+			else 
+				render static_pages_home_path
+			end
 	end
 
 	def new
-		@idea = Idea.new
+    @idea = Idea.new
+	end
+
+	def create
+		@idea = current_user.ideas.create(idea_params)
+		if @idea.valid?
+			redirect_to root_path
+		else
+			render :new, status: :unprocessable_entity
+		end
 	end
 
 	def edit
-		@idea = Idea.find(params[:id])
+    @idea = Idea.find(params[:id])
 	end
-	
+
 	def update
-		@idea = Idea.find(params[:id])
-		if @idea.update(idea_params)
-			flash[:success] = "The idea has been updated!"
+    @idea = Idea.find(params[:id])
+		@idea.update(idea_params)
+		if @idea.valid?
 			redirect_to root_path
 		else
-			 flash[:alert] = "Woops! Looks like there has been an error!"
-			redirect_to edit_idea_path(params[:id])
+			render :edit, status: :unprocessable_entity
 		end
-	end
-	
+  end
+
 	def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    redirect_to root_path
+	end
+
+	def show
 		@idea = Idea.find(params[:id])
-		@idea.destroy
-		flash[:success] = "The idea was successfully deleted!"
-		redirect_to root_path
+	end
+    
+	private
+
+  def idea_params
+    params.require(:idea).permit(:description)
 	end
 		
-	private
-	
-		def idea_params
-			params.require(:idea).permit(:description)
+	def is_owner?
+		if Idea.find(params[:id]).user != current_user
+			redirect_to root_path
 		end
+	end
+	
 end
-
-

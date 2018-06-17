@@ -1,6 +1,4 @@
-class Idea < ApplicationRecord 
-	
-	validates :description, presence: true
-	
+class Idea < ApplicationRecord
+    validates :description, presence: true
+    belongs_to :user
 end
- 
