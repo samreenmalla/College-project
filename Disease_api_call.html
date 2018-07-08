@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>
+        search
+    </title>
+    <style>
+        h4 {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="apple"></p>
+
+    <input type="text" id="input1" />
+    <button onclick="myJsFunction()">search</button>
+
+    <script type="text/javascript">
+        function myJsFunction() {
+            var text = document.getElementById('input1').value;
+            console.log(text)
+            var URL = `https://disease-info-api.herokuapp.com/diseases/${text}`
+            fetch(URL)
+                .then(response => response.json())
+                .then((res) => {
+                    console.log(res)
+                    var result = '<h4>ID: </h4>' + res.disease.id + '<br><br>' + '<h4>Facts: </h4>' + res.disease.facts + '<br><br>' + '<h4>Symptoms: </h4>' + res.disease.symptoms;
+
+                    document.getElementById("apple").innerHTML = result;
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    </script>
+</body>
+
+</html>
