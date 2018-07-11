@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'sessions/new'
   root 'posts#index'
-  get 'ideas/index'
+  get 'static_pages/donation'
+  get 'tags/:tag', to: 'ideas#index', as: :tag
+
   resources :posts
   resources :ideas
   resources :donations
   resources :users, only: :show
 
 end
+
+
+

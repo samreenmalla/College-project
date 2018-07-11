@@ -9,7 +9,7 @@ class DonationsController < ApplicationController
 	end
 
 	def show
-		@donation = Donation.find(params[:id])
+		@donations = Donation.find(params[:id])
 	end
 	
 	private

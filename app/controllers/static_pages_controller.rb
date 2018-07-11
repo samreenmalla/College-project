@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def donation
+    @donations = Donation.all
+  end
 end

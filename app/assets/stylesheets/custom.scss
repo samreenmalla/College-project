@@ -19,13 +19,13 @@ textarea{
   font-size: 20px;
 	color: blue($color: #00ffff);
   font-family: $primary-font;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin: 0 10px;
+  padding: 80px 0px 50px 0px;
+  vertical-align: middle;
 }
 
 h1,h2,h3{
   font-family: $secondary-font;
+  align-content: center;
 }
 
 nav {
@@ -150,4 +150,35 @@ nav {
   }
 }
 
+$footer-height: 45px;
 
+#page-top {
+  background: image-url('bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  line-height: 30px;
+  font-size: 20px;
+  color: white;
+  opacity: 1;
+  margin:0px 0px $footer-height 0px;
+  padding: 180px 0px 50px 0px ;
+  text-align: center;
+  height: auto;
+}
+
+.footer {
+  height: $footer-height;
+}
+.icon{
+  color: white;
+  width: 16px;
+  height: 16px;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}

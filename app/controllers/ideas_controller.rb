@@ -6,11 +6,14 @@ class IdeasController < ApplicationController
 	def index
 		if user_signed_in?
 			@ideas = Idea.all.order('created_at DESC')
-			else 
-				render static_pages_home_path
+			if params[:tag]
+				@ideas = Idea.tagged_with(params[:tag])
 			end
+		else 
+			render static_pages_home_path
+		end
 	end
-
+  
 	def new
     @idea = Idea.new
 	end
@@ -48,10 +51,9 @@ class IdeasController < ApplicationController
 		@idea = Idea.find(params[:id])
 	end
     
-	private
 
   def idea_params
-    params.require(:idea).permit(:description)
+    params.require(:idea).permit(:description, :tag_list)
 	end
 		
 	def is_owner?
