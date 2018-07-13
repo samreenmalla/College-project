@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   get 'static_pages/donation'
   get 'tags/:tag', to: 'ideas#index', as: :tag
 
-  resources :posts
-  resources :ideas
+  resources :posts do
+    resources :comments
+  end
+  resources :ideas do
+    resources :comments
+  end
   resources :donations
   resources :users, only: :show
 
