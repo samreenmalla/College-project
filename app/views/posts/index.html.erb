@@ -13,12 +13,16 @@
       <%= link_to post.user.name, user_path(post.user_id) %> <%= post.caption %>
       <%= link_to 'View Post', post_path(post.id)%>
     </div>
-
-    <%#<div class = "idea_body" >
-      <%#<div class = "jumbotron" >
-      <%#<%= link_to ideas_path %>
-      <%#<%= link_to idea.user.name, user_path(idea.user_id) %>
-      <%#</div>
-    </div>%>
   </div>
+  <% post.comments.each do |comment| %>
+    <p><%= comment.user.name %> <%= comment.text %></p>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
+      <%= f.input :text, label: 'Comment', placeholder: 'Add a comment...' %>
+      <%= f.submit 'Comment', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+
 <% end %>
