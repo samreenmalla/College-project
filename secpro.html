@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Bad Words </title>
+  <script type ="text/javascript">
+    
+    function showText() {
+      var oInput1 = document.getElementById("txt1").value;
+      var wurd = oInput1.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').split(" ");
+      
+      var oInput2;
+      var output=''
+      console.log(wurd)
+      
+      fetch('https://raw.githubusercontent.com/web-mech/badwords/master/lib/lang.json')
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {   
+        for (let i=0; i < wurd.length; i++ ){
+          
+          for(let j = 0 ; j < json.words.length; j++){
+            if( wurd[i]=== json.words[j]){
+              
+              
+              oInput2=wurd[i].replace(json.words[j],function(sMatch){
+                return sMatch.replace(/./g, "*");
+                
+              });
+              console.log(oInput2);
+              break;
+            }
+            else {
+              oInput2=wurd[i]
+              console.log(oInput2)
+            }
+          }
+          output+= oInput2+' '
+        }
+        console.log(output)
+        
+        document.getElementById('txt2').innerHTML=output;
+        
+      })
+      
+    }
+    
+  </script>
+</head>
+<body>
+  <textarea rows="10" cols="50" id="txt1"></textarea><br />
+  <input type="button" value="Filter Bad Words" onclick="showText()" /></p>
+  <P>Filtered Text:<br />
+    <textarea rows="10" cols="50" id="txt2"></textarea></p>
+    
+  </body>
+  </html>
